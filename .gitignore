@@ -1,0 +1,15 @@
+/target
+/dist
+/build
+/.falo_cache
+/__pycache__
+/*.egg-info
+/.pytest_cache
+/.venv
+/venv
+/assets.pak
+/assets.manifest
+*.pyc
+.DS_Store
+/editor/target
+/web/dist

@@ -1,0 +1,10 @@
+[package]
+name = "falo-profiler"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "falo-profiler crate for Falo engine"
+repository.workspace = true
+
+[dependencies]
+log = { workspace = true }

@@ -1,0 +1,15 @@
+[package]
+name = "falo-python"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "falo-python crate for Falo engine"
+repository.workspace = true
+
+[dependencies]
+pyo3 = { workspace = true }
+falo-core = { workspace = true }
+falo-ecs = { workspace = true }
+falo-scene = { workspace = true }
+log = { workspace = true }
+anyhow = { workspace = true }

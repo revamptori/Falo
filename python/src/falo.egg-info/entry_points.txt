@@ -1,0 +1,3 @@
+[console_scripts]
+engine = falo.cli:main
+falo = falo.cli:main

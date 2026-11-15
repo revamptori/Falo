@@ -1,0 +1,125 @@
+[workspace]
+members = [
+    "crates/falo-core",
+    "crates/falo-math",
+    "crates/falo-window",
+    "crates/falo-gpu",
+    "crates/falo-renderer",
+    "crates/falo-renderer-2d",
+    "crates/falo-renderer-3d",
+    "crates/falo-input",
+    "crates/falo-ecs",
+    "crates/falo-scene",
+    "crates/falo-assets",
+    "crates/falo-audio",
+    "crates/falo-physics",
+    "crates/falo-animation",
+    "crates/falo-particles",
+    "crates/falo-ui",
+    "crates/falo-network",
+    "crates/falo-serialization",
+    "crates/falo-debug",
+    "crates/falo-profiler",
+    "crates/falo-scripting",
+    "crates/falo-python",
+    "crates/falo-editor",
+    "crates/falo-cli",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/revamptori/Falo"
+authors = ["Falo Engine Team"]
+rust-version = "1.85"
+keywords = ["game-engine", "2d", "3d", "rendering", "physics", "python"]
+categories = ["game-engines", "graphics", "multimedia"]
+
+[workspace.dependencies]
+# Core
+serde = { version = "1.0", features = ["derive"] }
+ron = "0.8"
+rmp-serde = "1.0"
+thiserror = "1.0"
+anyhow = "1.0"
+log = "0.4"
+env_logger = "0.11"
+
+# Math
+glam = { version = "0.28", features = ["serde"] }
+
+# Windowing / GPU
+winit = { version = "0.30", features = ["rwh_06"] }
+wgpu = { version = "0.20", features = ["wgsl"] }
+naga = { version = "0.20" }
+raw-window-handle = "0.6"
+
+# ECS
+bevy_ecs = { version = "0.14", default-features = false }
+
+# Assets / Images
+image = { version = "0.25", default-features = false, features = ["png", "jpeg", "webp", "hdr"] }
+gltf = { version = "1.4", features = ["import"] }
+kira = { version = "0.9", default-features = false }
+cpal = "0.15"
+
+# Physics
+rapier2d = { version = "0.23", features = ["simd-stable"] }
+rapier3d = { version = "0.23", features = ["simd-stable"] }
+
+# UI / Editor
+egui = { version = "0.28", default-features = false }
+egui-wgpu = { version = "0.28" }
+egui-winit = { version = "0.28" }
+
+# Networking
+quinn = { version = "0.11", features = ["rustls"] }
+tokio = { version = "1", features = ["rt", "net", "time", "sync"] }
+
+# Python
+pyo3 = { version = "0.22", features = ["extension-module"] }
+numpy = { version = "0.22" }
+
+# Compression
+lz4_flex = "0.11"
+zstd = "0.13"
+
+# Internal
+falo-core = { path = "crates/falo-core" }
+falo-math = { path = "crates/falo-math" }
+falo-window = { path = "crates/falo-window" }
+falo-gpu = { path = "crates/falo-gpu" }
+falo-renderer = { path = "crates/falo-renderer" }
+falo-renderer-2d = { path = "crates/falo-renderer-2d" }
+falo-renderer-3d = { path = "crates/falo-renderer-3d" }
+falo-input = { path = "crates/falo-input" }
+falo-ecs = { path = "crates/falo-ecs" }
+falo-scene = { path = "crates/falo-scene" }
+falo-assets = { path = "crates/falo-assets" }
+falo-audio = { path = "crates/falo-audio" }
+falo-physics = { path = "crates/falo-physics" }
+falo-animation = { path = "crates/falo-animation" }
+falo-particles = { path = "crates/falo-particles" }
+falo-ui = { path = "crates/falo-ui" }
+falo-network = { path = "crates/falo-network" }
+falo-serialization = { path = "crates/falo-serialization" }
+falo-debug = { path = "crates/falo-debug" }
+falo-profiler = { path = "crates/falo-profiler" }
+falo-scripting = { path = "crates/falo-scripting" }
+
+[profile.dev]
+opt-level = 0
+debug = true
+overflow-checks = true
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+panic = "abort"
+strip = true
+
+[profile.dev.package."*"]
+opt-level = 0

@@ -1,0 +1,13 @@
+[package]
+name = "falo-window"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "falo-window crate for Falo engine"
+repository.workspace = true
+
+[dependencies]
+winit = { workspace = true }
+falo-core = { workspace = true }
+log = { workspace = true }
+raw-window-handle = { workspace = true }

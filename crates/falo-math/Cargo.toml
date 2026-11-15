@@ -1,0 +1,11 @@
+[package]
+name = "falo-math"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "falo-math crate for Falo engine"
+repository.workspace = true
+
+[dependencies]
+glam = { workspace = true }
+serde = { workspace = true }
