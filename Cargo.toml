@@ -50,43 +50,43 @@ env_logger = "0.11"
 # Math
 glam = { version = "0.28", features = ["serde"] }
 
-# Windowing / GPU
+# Windowing / GPU — pinned compatible set: wgpu 0.20 + winit 0.30 + naga 0.20
 winit = { version = "0.30", features = ["rwh_06"] }
 wgpu = { version = "0.20", features = ["wgsl"] }
 naga = { version = "0.20" }
 raw-window-handle = "0.6"
 
-# ECS
-bevy_ecs = { version = "0.14", default-features = false }
+# ECS — use default features for scheduler + change detection
+bevy_ecs = { version = "0.14" }
 
 # Assets / Images
 image = { version = "0.25", default-features = false, features = ["png", "jpeg", "webp", "hdr"] }
 gltf = { version = "1.4", features = ["import"] }
-kira = { version = "0.9", default-features = false }
+# Kira audio — cpal backend required; remove default guess, enable cpal explicitly
+kira = { version = "0.9", default-features = false, features = ["cpal"] }
 cpal = "0.15"
 
 # Physics
 rapier2d = { version = "0.23", features = ["simd-stable"] }
 rapier3d = { version = "0.23", features = ["simd-stable"] }
 
-# UI / Editor
-egui = { version = "0.28", default-features = false }
-egui-wgpu = { version = "0.28" }
-egui-winit = { version = "0.28" }
+# UI / Editor — egui 0.29 matches wgpu 0.20, winit 0.30
+egui = { version = "0.29", default-features = false }
+egui-wgpu = { version = "0.29" }
+egui-winit = { version = "0.29" }
 
-# Networking
-quinn = { version = "0.11", features = ["rustls"] }
-tokio = { version = "1", features = ["rt", "net", "time", "sync"] }
+# Networking — quinn 0.11 feature names are `rustls-ring`/`rustls-aws-lc` + runtime
+quinn = { version = "0.11", default-features = false, features = ["rustls-ring", "runtime-tokio"] }
+tokio = { version = "1", features = ["rt", "rt-multi-thread", "net", "time", "sync", "macros"] }
 
-# Python
+# Python — pyo3 extension-module; numpy is *not* a workspace dep, used only in Python package
 pyo3 = { version = "0.22", features = ["extension-module"] }
-numpy = { version = "0.22" }
 
 # Compression
 lz4_flex = "0.11"
 zstd = "0.13"
 
-# Internal
+# Internal crates — hyphen names; Rust code imports as underscore (falo_core)
 falo-core = { path = "crates/falo-core" }
 falo-math = { path = "crates/falo-math" }
 falo-window = { path = "crates/falo-window" }
