@@ -1,0 +1,13 @@
+[package]
+name = "falo-audio"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "falo-audio crate for Falo engine"
+repository.workspace = true
+
+[dependencies]
+kira = { workspace = true }
+log = { workspace = true }
+anyhow = { workspace = true }
+serde = { workspace = true }

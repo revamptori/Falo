@@ -1,0 +1,28 @@
+[project]
+name = "Falo Demo"
+version = "1.0.0"
+entry = "main.py"
+
+[build]
+default_target = "linux"
+profile = "release"
+bundle_python = true
+compress_assets = true
+
+[application]
+identifier = "com.falo.demo"
+icon = "assets/icon.png"
+orientation = "landscape"
+fullscreen = true
+
+[android]
+min_sdk = 26
+target_sdk = 35
+version_code = 1
+
+[windows]
+console = false
+
+[assets]
+include = ["assets/**"]
+exclude = ["assets/source/**", "**/*.psd", "**/*.blend"]

@@ -1,0 +1,11 @@
+[package]
+name = "falo-scripting"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "falo-scripting crate for Falo engine"
+repository.workspace = true
+
+[dependencies]
+log = { workspace = true }
+anyhow = { workspace = true }

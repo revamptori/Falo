@@ -1,0 +1,13 @@
+[package]
+name = "falo-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "falo-core crate for Falo engine"
+repository.workspace = true
+
+[dependencies]
+serde = { workspace = true }
+thiserror = { workspace = true }
+log = { workspace = true }
+glam = { workspace = true }

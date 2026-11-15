@@ -1,0 +1,14 @@
+[package]
+name = "falo-editor"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "falo-editor crate for Falo engine"
+repository.workspace = true
+
+[dependencies]
+falo-core = { workspace = true }
+falo-scene = { workspace = true }
+falo-renderer = { workspace = true }
+egui = { workspace = true }
+log = { workspace = true }
