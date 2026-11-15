@@ -3,8 +3,12 @@ name = "falo-python"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
-description = "falo-python crate for Falo engine"
+description = "falo-python crate for Falo engine — PyO3 bindings"
 repository.workspace = true
+
+[lib]
+name = "falo_python"
+crate-type = ["cdylib"]
 
 [dependencies]
 pyo3 = { workspace = true }
